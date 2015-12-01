@@ -9,11 +9,11 @@
 
 	<style>
 		body {
-			background-color: #efefef;
+			background-color: #fafafa;
 		}
 
 		.background-image {
-			height: 80vh;
+			height: 600px;
 			width: 100%;
 			background: url(images/safety.jpg) center center no-repeat;
 			background-position: 0px -300px;
@@ -42,14 +42,15 @@
 
 		.card {
 			background-color: white;
-			padding: 32px;
+			padding: 0;
 			border-radius: 3px;
 			box-shadow: 1px 1px 3px #aaa;
 		}
-
-		.card .content {
-			margin-left: 10px;
+		
+		.card h1, .card-content {
+			margin: 32px 0px 32px 32px;
 		}
+
 
 		.card .list-unstyled li {
 			margin-top: 10px;
@@ -59,6 +60,40 @@
 			width: 50%;
 			border-bottom: 1px dashed gray;
 		}
+
+		.card h1 {
+			font-weight: 200;
+			font-size: 28px;
+			color: #555;
+		}
+
+		.card .card-header {
+			width: 100%;
+			background-color: rgba(120, 120, 120, 0.2);
+			padding: 2px;
+		}
+
+		.card .card-content h2 {
+			font-size: 24px;
+			font-weight: normal;
+		}
+
+		.card .card-content h3 {
+			font-size: 18px;
+			font-weight: normal;
+			color: black;
+		}
+
+		.btn-primary-custom {
+			background-color: #779ECB;
+			color: white;
+		}
+
+		.btn-secondary-custom {
+			background-color: #C23B22;
+			color: white;
+		}
+
 	</style>
 </head>
 <body>
@@ -73,21 +108,35 @@
 				<h2>Setting the standard for secure online banking since 2015</h2>
 				<br>
 				<h3>Welcome home</h3>
-			</div>	
+			</div>
+
 		</div>
 	</div>
 
 	<div class="page-content">
 		<div class="container">	
 			<div class="card col-md-6">
-				<h1>Your account</h1>
-				<p>Balance: 50000</p>
-				<p>Transaction History: RIP</p>
+				
+				<div class="card-header">
+					<h1>Your Account</h1>
+				</div>
+				
+				<div class="card-content">
+					<h2>Balance: $5326.12</h2>
+					<h3>Account Status: Platinum</h3>
+					<br>
+					<button class="btn btn-primary-custom">Transfer Funds</button>	
+					<button class="btn btn-secondary-custom">Close Account</button>	
+				</div>
 			</div>
 
 			<div class="card col-md-5 col-md-offset-1">
-				<h1>Transaction History</h1>
-				<div class="content">
+				
+				<div class="card-header">
+					<h1>Transaction History</h1>
+				</div>
+				
+				<div class="card-content">
 					<ul class="list-unstyled">
 						<li>
 							<span style="color: #444"><i>July 9th, 2015</i></span>
