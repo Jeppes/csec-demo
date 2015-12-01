@@ -8,6 +8,10 @@
 
 
 	<style>
+		body {
+			background-color: #efefef;
+		}
+
 		.background-image {
 			height: 80vh;
 			width: 100%;
@@ -32,7 +36,29 @@
 			font-weight: 200;
 		}
 
+		.page-content {
+			margin: 50px;
+		}
 
+		.card {
+			background-color: white;
+			padding: 32px;
+			border-radius: 3px;
+			box-shadow: 1px 1px 3px #aaa;
+		}
+
+		.card .content {
+			margin-left: 10px;
+		}
+
+		.card .list-unstyled li {
+			margin-top: 10px;
+			padding-bottom: 5px; 
+			font-size: 16px;
+			font-weight: 200;
+			width: 50%;
+			border-bottom: 1px dashed gray;
+		}
 	</style>
 </head>
 <body>
@@ -49,7 +75,52 @@
 				<h3>Welcome home</h3>
 			</div>	
 		</div>
+	</div>
 
+	<div class="page-content">
+		<div class="container">	
+			<div class="card col-md-6">
+				<h1>Your account</h1>
+				<p>Balance: 50000</p>
+				<p>Transaction History: RIP</p>
+			</div>
+
+			<div class="card col-md-5 col-md-offset-1">
+				<h1>Transaction History</h1>
+				<div class="content">
+					<ul class="list-unstyled">
+						<li>
+							<span style="color: #444"><i>July 9th, 2015</i></span>
+							<br>	
+							<strong>+5000</strong> from Margaret
+						</li>
+						
+						<li>
+							<span style="color: #444"><i>June 16th, 2015</i></span>
+							<br>	
+							<strong>-3000</strong> sent to Dennis R.
+						</li>
+						<li>
+							<span style="color: #444"><i>May 14th, 2015</i></span>
+							<br>	
+							<strong>+3000</strong> from Donald K.
+						</li>
+						<li>
+							<span style="color: #444"><i>February 25th, 2015</i></span>
+							<br>	
+							<strong>-5000</strong> to Bob R.
+						</li>
+						<li>
+							<span style="color: #444"><i>January 14th, 2015</i></span>
+							<br>	
+							<strong>+5000</strong> from Bill G.
+						</li>
+					</ul>
+
+					<a href="">See Full History</a>
+				</div>
+			</div>
+		</div>
 	</div>
 
 
