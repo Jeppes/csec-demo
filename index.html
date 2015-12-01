@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+	<style>
+		.background-image {
+			height: 80vh;
+			width: 100%;
+			background: url(images/safety.jpg) center center no-repeat;
+			background-position: 0px -300px;
+		}
+
+		.header-text {
+			display: inline-block;
+			margin-top: 20%;
+			padding: 50px;
+			background-color: rgba(20, 20, 20, 0.7);
+			color: white;
+		}
+		
+		.header-text .glyphicon {
+			font-size: 70%;
+		}
+
+		.header-text h2, h3 {
+			color: #efefef;
+			font-weight: 200;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="background-image">
+	
+		<div class="container">
+
+			<div class="header-text">
+				<h1>
+					Super <i>Safe</i> Bank   <i class="glyphicon glyphicon-euro"></i> 
+				</h1>
+				<h2>Setting the standard for secure online banking since 2015</h2>
+				<br>
+				<h3>Welcome home</h3>
+			</div>	
+		</div>
+
+	</div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script>
+	$( document ).ready(function() {
+			    // A really ugly parallax implementation 
+			    var backgroundImg = $('.background-image');
+				(function () {
+					var previousScroll = 0;
+
+					$(window).scroll(function(){
+						var position = parseInt(backgroundImg.css('background-position-y'));
+						var currentScroll = $(this).scrollTop();
+						if (currentScroll > previousScroll){
+							backgroundImg.css('background-position-y', position + 2 + "px");
+						} else {
+							backgroundImg.css('background-position-y', position - 2 + "px");
+						}
+						previousScroll = currentScroll;
+					});
+				}());
+					
+			});
+</script>
+</html>
