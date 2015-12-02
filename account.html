@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Super Safe Inc.</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+	<style>
+		body {
+			background-color: #fafafa;
+		}
+
+		.background-image {
+			height: 600px;
+			width: 100%;
+			background: url(images/safety.jpg) center center no-repeat;
+			background-position: 0px -300px;
+		}
+
+		.header-text {
+			display: inline-block;
+			margin-top: 20%;
+			padding: 50px;
+			background-color: rgba(20, 20, 20, 0.7);
+			color: white;
+			-webkit-transition: 0.25s ease-in-out;
+			-o-transition: 0.25s ease-in-out;
+			transition: 0.25s ease-in-out;
+		}
+		
+		.header-text .glyphicon {
+			font-size: 70%;
+		}
+
+		.header-text h2, h3 {
+			color: #efefef;
+			font-weight: 200;
+		}
+
+		.page-content {
+			margin: 50px;
+		}
+
+		.card {
+			background-color: white;
+			padding: 0;
+			border-radius: 3px;
+			box-shadow: 1px 1px 3px #aaa;
+		}
+
+		.account-card {
+			height: 600px;
+		}
+		
+		.card h1, .card-content {
+			margin: 32px 0px 32px 32px;
+		}
+
+
+		.card .list-unstyled li {
+			margin-top: 10px;
+			padding-bottom: 5px; 
+			font-size: 16px;
+			font-weight: 200;
+			width: 50%;
+			border-bottom: 1px dashed gray;
+		}
+
+		.card h1 {
+			font-weight: 200;
+			font-size: 28px;
+			color: #555;
+		}
+
+		.card .card-header {
+			width: 100%;
+			background-color: rgba(120, 120, 120, 0.2);
+			padding: 2px;
+		}
+
+		.card .card-content h2 {
+			font-size: 24px;
+			font-weight: normal;
+		}
+
+		.card .card-content h3 {
+			font-size: 18px;
+			font-weight: normal;
+			color: black;
+		}
+
+		.btn-primary-custom {
+			background-color: #779ECB;
+			font-weight: 200;
+			color: white;
+		}
+
+		.btn-secondary-custom {
+			background-color: #C23B22;
+			font-weight: 200;
+			color: white;
+		}
+
+		svg {
+			width: 100%;
+			height: 225px;
+		}
+
+		path.slice{
+			stroke-width:2px;
+		}
+
+		polyline{
+			opacity: .3;
+			stroke: black;
+			stroke-width: 2px;
+			fill: none;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="background-image">
+	
+		<div class="container header-container">
+
+			<div class="header-text">
+				<h1>
+					Super <i>Safe</i> Bank   <i class="glyphicon glyphicon-euro"></i> 
+				</h1>
+				<h2>Setting the standard for secure online banking since 2015</h2>
+				<br>
+				<h3>Welcome home</h3>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="page-content">
+		<div class="container">	
+			<div class="card col-md-6 account-card">
+				
+				<div class="card-header">
+					<h1>Your Account</h1>
+				</div>
+				
+				<div class="card-content">
+					<h2>Balance: $5326.12</h2>
+					<h3>Account Status: <i>Platinum</i></h3>
+					<h3>Account Distribution:</h3>
+					<br>
+					<span class="pie-chart"></span>
+					<br>
+					<br>
+					<button class="btn btn-primary-custom">Transfer Funds</button>	
+					<button class="btn btn-secondary-custom">Close Account</button>
+				</div>
+			</div>
+
+			<div class="card col-md-5 col-md-offset-1">
+				
+				<div class="card-header">
+					<h1>Transaction History</h1>
+				</div>
+				
+				<div class="card-content">
+					<ul class="list-unstyled">
+						<li>
+							<span style="color: #444"><i>July 9th, 2015</i></span>
+							<br>	
+							<strong>+$5326.12</strong> from Margaret
+						</li>
+						
+						<li>
+							<span style="color: #444"><i>June 16th, 2015</i></span>
+							<br>	
+							<strong>-$3014</strong> sent to Dennis R.
+						</li>
+						<li>
+							<span style="color: #444"><i>May 14th, 2015</i></span>
+							<br>	
+							<strong>+$3014</strong> from Donald K.
+						</li>
+						<li>
+							<span style="color: #444"><i>February 25th, 2015</i></span>
+							<br>	
+							<strong>-$512</strong> to Bob R.
+						</li>
+						<li>
+							<span style="color: #444"><i>January 14th, 2015</i></span>
+							<br>	
+							<strong>+$512</strong> from Bill G.
+						</li>
+					</ul>
+
+					<a href="">See Full History</a>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="piechart.js"></script>
+
+</body>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script>
+	$( document ).ready(function() {
+			    // A really ugly parallax implementation 
+			    var backgroundImg = $('.background-image');
+				(function () {
+					var previousScroll = 0;
+
+					$(window).scroll(function(){
+						var position = parseInt(backgroundImg.css('background-position-y'));
+						var currentScroll = $(this).scrollTop();
+						if (currentScroll > previousScroll){
+							backgroundImg.css('background-position-y', position + 2 + "px");
+						} else {
+							backgroundImg.css('background-position-y', position - 2 + "px");
+						}
+						previousScroll = currentScroll;
+					});
+				}());
+					
+			});
+</script>
+</html>

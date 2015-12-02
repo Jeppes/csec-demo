@@ -71,7 +71,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		log.Println("User created with id:", user.ID)
+		log.Println("User", user.Name, "created with id:", user.ID)
 	}
 
 	userSession, err := store.Get(r, "session-name")
