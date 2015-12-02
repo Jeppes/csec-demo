@@ -193,13 +193,7 @@
 				
 				<div class="card-content">
 					<ul class="list-unstyled">
-						{{range .Transactions}}
-							<span class="date"><i>{{.Date}}</i></span>
-							<br>	
-							<strong>{{.Amount}}</strong>{{.Message}}
-				        {{end}}
-
-
+						{{.Transactions}}
 						<li>
 							<span class="date"><i>July 9th, 2015</i></span>
 							<br>	
