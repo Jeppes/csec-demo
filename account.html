@@ -28,6 +28,18 @@
 			-webkit-transition: 0.25s ease-in-out;
 			-o-transition: 0.25s ease-in-out;
 			transition: 0.25s ease-in-out;
+			transform: translate(-1000px, 0);
+		}
+
+		.account-card, .history-card {
+			-webkit-transition: 0.25s ease-in-out;
+			-o-transition: 0.25s ease-in-out;
+			transition: 0.25s ease-in-out;
+			transform: translate(0, 1000px);
+		}
+
+		.slide-in {
+			transform: translate(0, 0);
 		}
 		
 		.header-text .glyphicon {
@@ -185,7 +197,7 @@
 				</div>
 			</div>
 
-			<div class="card col-md-5 col-md-offset-1">
+			<div class="card history-card col-md-5 col-md-offset-1">
 				
 				<div class="card-header">
 					<h1>Transaction History</h1>
@@ -256,6 +268,15 @@
 			    	
 			    	visible = !visible;
 			    });
+
+
+			    setTimeout(function() {
+			    	$('.header-text').addClass('slide-in');
+			    	$('.account-card').addClass('slide-in');
+			    	setTimeout(function() {
+			    		$('.history-card').addClass('slide-in');
+			    	}, 25);
+				}, 50);
 
 
 			    // A really ugly parallax implementation 
