@@ -51,7 +51,7 @@
 		}
 
 		.account-card {
-			height: 600px;
+			min-height: 600px;
 		}
 		
 		.card h1, .card-content {
@@ -122,8 +122,20 @@
 		.date {
 			color: #444;
 		}
+		
+		.form-transfer, .account-card {
+			-webkit-transition: 0.2s ease-in-out;
+			-o-transition: 0.2s ease-in-out;
+			transition: 0.2s ease-in-out;
+		}
 
+		.form-transfer {
+			margin: 20px 20px 20px 0;
+		}
 
+		.form-transfer input {
+			margin: 2px 0px 2px 0;
+		}
 	</style>
 </head>
 <body>
@@ -159,8 +171,17 @@
 					<span class="pie-chart"></span>
 					<br>
 					<br>
-					<button class="btn btn-primary-custom">Transfer Funds</button>	
+					<button class="btn btn-primary-custom" id="startTransfer">Transfer Funds</button>	
 					<button class="btn btn-secondary-custom">Close Account</button>
+
+
+					<form class="form-transfer" action="transfer">
+				        <label for="inputReceiver" class="sr-only">Destination Account</label>
+				        <input type="text" id="inputReceiver" class="form-control" placeholder="To Account" required="" autofocus="">
+				        <label for="inputAmount" class="sr-only">Amount</label>
+				        <input id="inputAmount" class="form-control" placeholder="Amount">
+			        	<button class="btn btn-lg btn-primary-custom btn-block" type="submit">Send</button>
+			      	</form>
 				</div>
 			</div>
 
@@ -222,6 +243,21 @@
 
 <script>
 	$( document ).ready(function() {
+			    
+			    var visible = false;
+			    
+			    $('.form-transfer').hide();
+			    $('#startTransfer').on('click', function() {
+			    	if (!visible) {
+			    		$('.form-transfer').show();
+			    	} else {
+			    		$('.form-transfer').hide();
+			    	}
+			    	
+			    	visible = !visible;
+			    });
+
+
 			    // A really ugly parallax implementation 
 			    var backgroundImg = $('.background-image');
 				(function () {
