@@ -119,6 +119,10 @@
 			fill: none;
 		}
 
+		.date {
+			color: #444;
+		}
+
 
 	</style>
 </head>
@@ -133,7 +137,7 @@
 				</h1>
 				<h2>Setting the standard for secure online banking since 2015</h2>
 				<br>
-				<h3>Welcome home</h3>
+				<h3>Welcome home, {{.User.Name}}</h3>
 			</div>
 
 		</div>
@@ -148,7 +152,7 @@
 				</div>
 				
 				<div class="card-content">
-					<h2>Balance: $5326.12</h2>
+					<h2>Balance: ${{.User.Balance}}</h2>
 					<h3>Account Status: <i>Platinum</i></h3>
 					<h3>Account Distribution:</h3>
 					<br>
@@ -168,29 +172,36 @@
 				
 				<div class="card-content">
 					<ul class="list-unstyled">
+						{{range .Transactions}}
+							<span class="date"><i>{{.Date}}</i></span>
+							<br>	
+							<strong>{{.Amount}}</strong>{{.Message}}
+				        {{end}}
+
+
 						<li>
-							<span style="color: #444"><i>July 9th, 2015</i></span>
+							<span class="date"><i>July 9th, 2015</i></span>
 							<br>	
 							<strong>+$5326.12</strong> from Margaret
 						</li>
 						
 						<li>
-							<span style="color: #444"><i>June 16th, 2015</i></span>
+							<span class="date"><i>June 16th, 2015</i></span>
 							<br>	
 							<strong>-$3014</strong> sent to Dennis R.
 						</li>
 						<li>
-							<span style="color: #444"><i>May 14th, 2015</i></span>
+							<span class="date"><i>May 14th, 2015</i></span>
 							<br>	
 							<strong>+$3014</strong> from Donald K.
 						</li>
 						<li>
-							<span style="color: #444"><i>February 25th, 2015</i></span>
+							<span class="date"><i>February 25th, 2015</i></span>
 							<br>	
 							<strong>-$512</strong> to Bob R.
 						</li>
 						<li>
-							<span style="color: #444"><i>January 14th, 2015</i></span>
+							<span class="date"><i>January 14th, 2015</i></span>
 							<br>	
 							<strong>+$512</strong> from Bill G.
 						</li>
