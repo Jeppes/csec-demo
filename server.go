@@ -45,13 +45,13 @@ type User struct {
 }
 
 type Transaction struct {
-	Message string        `bson:"message",omitempty`
-	Amount  int           `bson:"amount"`
-	From    bson.ObjectId `bson:"from"`
-	FromUser  string `bson:"from_user"`
-	To      bson.ObjectId `bson:"to"`
-	ToUser  string `bson:"to_user"`
-	Date    time.Time     `bson:"time"`
+	Message  string        `bson:"message",omitempty`
+	Amount   int           `bson:"amount"`
+	From     bson.ObjectId `bson:"from"`
+	FromUser string        `bson:"from_user"`
+	To       bson.ObjectId `bson:"to"`
+	ToUser   string        `bson:"to_user"`
+	Date     time.Time     `bson:"time"`
 }
 
 type Account struct {
@@ -72,6 +72,7 @@ func transfer(w http.ResponseWriter, r *http.Request) {
 
 	amount, _ := strconv.Atoi(r.FormValue("amount"))
 	receiver_name := r.FormValue("receiver")
+	message := r.FormValue("message")
 
 	var receiver User
 	var user User
@@ -89,7 +90,7 @@ func transfer(w http.ResponseWriter, r *http.Request) {
 	}
 
 	transactions := session.DB("csec-demo").C("transactions")
-	transaction := Transaction{Amount: amount, To: receiver.ID, ToUser: receiver.Name, From: user.ID, FromUser: user.Name, Date: time.Now() }
+	transaction := Transaction{Amount: amount, To: receiver.ID, ToUser: receiver.Name, From: user.ID, FromUser: user.Name, Date: time.Now(), Message: message}
 	transactions.Insert(transaction)
 
 	users.UpdateId(receiver.ID, bson.M{"$set": bson.M{"balance": receiver.Balance + amount}})
@@ -145,7 +146,9 @@ func account(w http.ResponseWriter, r *http.Request) {
 				<span class="date"><i>%s %d, %d</i></span>
 				<br>	
 				<strong>$%d </strong>%s
-			</li>`, transaction.Date.Month(), transaction.Date.Day(), transaction.Date.Year(), transaction.Amount, message))
+				<br>
+				<i>Message: </i>%s
+			</li>`, transaction.Date.Month(), transaction.Date.Day(), transaction.Date.Year(), transaction.Amount, message, transaction.Message))
 	}
 
 	account := Account{User: user, Transactions: template.HTML(buffer.String())}
